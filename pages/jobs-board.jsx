@@ -1,9 +1,10 @@
+import Link from "next/link";
 import { useState } from "react";
 import { jobsBoardFilter } from "../lib/constants";
 import { fakeJobs, pagesN } from "../lib/constants/fakeJobs";
 
 const JobsBoard = () => {
-  const [filterSel, setFilterSel] = useState();
+  const [filterSel, setFilterSel] = useState(0);
   const [pageSel, setPageSel] = useState(0);
 
   return (
@@ -15,9 +16,11 @@ const JobsBoard = () => {
       <div className="mt-6 text-xl text-gray-500">
         Clear scope. Upfront pricing. No suprises.
       </div>
-      <div className="mt-10 w-36 bg-blue-600 font-medium text-white text-center py-2 rounded-xl cursor-pointer hover:bg-blue-500">
-        Add new Job
-      </div>
+      <Link href="/new-job-form">
+        <div className="mt-10 w-36 bg-blue-600 font-medium text-white text-center py-2 rounded-xl cursor-pointer hover:bg-blue-500">
+          Add new Job
+        </div>
+      </Link>
       <div className="mt-24 flex items-center justify-between">
         <div className="flex items-center gap-5">
           {jobsBoardFilter.map((f, i) => (
