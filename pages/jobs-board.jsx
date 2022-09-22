@@ -51,9 +51,15 @@ const JobsBoard = () => {
               <div className="mt-2 text-2xl text-gray-900">{j.name}</div>
               <div className="mt-2 text-gray-500">{j.description}</div>
               <div className="mt-6 flex items-center gap-2">
-                {j.tags.map((t) => (
+                {j.tags.map((t, i) => (
                   <div
-                    className={`py-0.5 px-2.5 text-sm font-medium ${t.font} ${t.bg} rounded-xl `}
+                    className={`py-0.5 px-2.5 text-sm font-medium ${
+                      i === 0
+                        ? "text-blue-700 bg-blue-50"
+                        : i === 1
+                        ? "text-indigo-700 bg-indigo-50"
+                        : "text-pink-700 bg-pink-50"
+                    } rounded-xl `}
                   >
                     {t.name}
                   </div>
