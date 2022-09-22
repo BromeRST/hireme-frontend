@@ -27,8 +27,8 @@ const JobsBoard = () => {
             <div
               key={i}
               onClick={() => setFilterSel(i)}
-              className={`py-2 px-3 text-gray-500 font-medium cursor-pointer hover:text-black ${
-                filterSel === i && "text-blue-700 rounded-lg bg-blue-50"
+              className={`py-2 px-3 text-gray-500 rounded-lg font-medium cursor-pointer hover:bg-blue-50 ${
+                filterSel === i && "text-blue-700 bg-blue-50"
               }`}
             >
               {f}
@@ -42,23 +42,25 @@ const JobsBoard = () => {
       </div>
       <div className="py-14 grid grid-cols-3 gap-8 gap-y-16 border-b border-gray-100">
         {fakeJobs.map((j, i) => (
-          <div key={i} className="flex flex-col">
-            <img src={j.img} />
-            <div className="mt-8 text-sm text-blue-700 font-semibold">
-              {j.worker} · {j.date}
+          <Link href="/job-page-applicant">
+            <div key={i} className="flex flex-col cursor-pointer">
+              <img src={j.img} />
+              <div className="mt-8 text-sm text-blue-700 font-semibold">
+                {j.worker} · {j.date}
+              </div>
+              <div className="mt-2 text-2xl text-gray-900">{j.name}</div>
+              <div className="mt-2 text-gray-500">{j.description}</div>
+              <div className="mt-6 flex items-center gap-2">
+                {j.tags.map((t) => (
+                  <div
+                    className={`py-0.5 px-2.5 text-sm font-medium ${t.font} ${t.bg} rounded-xl `}
+                  >
+                    {t.name}
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="mt-2 text-2xl text-gray-900">{j.name}</div>
-            <div className="mt-2 text-gray-500">{j.description}</div>
-            <div className="mt-6 flex items-center gap-2">
-              {j.tags.map((t) => (
-                <div
-                  className={`py-0.5 px-2.5 text-sm font-medium ${t.font} ${t.bg} rounded-xl `}
-                >
-                  {t.name}
-                </div>
-              ))}
-            </div>
-          </div>
+          </Link>
         ))}
       </div>
       <div className="pt-6 flex items-center justify-between text-sm text-gray-500 font-medium">

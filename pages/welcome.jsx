@@ -29,7 +29,7 @@ const Welcome = () => {
           className="w-full py-2.5 px-3 border border-gray-300 bg-gray-50 rounded-lg outline-0 mt-2"
           placeholder="AQwsmsimSSsnsjns0988msmo420.DsmoO"
         />
-        <Link href="/profile/set-up">
+        <Link href="/set-up">
           <div className="mt-6 bg-blue-600 text-white text-center w-full py-2 rounded-xl cursor-pointer hover:bg-blue-500">
             Register Account
           </div>
